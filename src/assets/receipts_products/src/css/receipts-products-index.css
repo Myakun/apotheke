@@ -1,0 +1,44 @@
+.storage-cell-volume {
+    font-size: 14px;
+}
+
+.storage-cells-widget-rack-number {
+    padding-top:0!important;
+}
+
+.storage-cells-widget-racks {
+    margin:0;
+}
+
+.storage-cells-widget-racks .storage-cell {
+    text-align:center;
+}
+
+.storage-cells-widget-racks .storage-cell .select-cell,
+.storage-cells-widget-racks .storage-cell .unselect-cell {
+    display:none;
+    font-size:12px;
+    margin-top:8px;
+}
+
+.storage-cells-widget-racks .storage-cell:hover .select-cell {
+    display:inline-block;
+}
+
+.storage-cells-widget-racks .storage-cell.table-danger:hover .select-cell,
+.storage-cells-widget-racks .storage-cell.table-success:hover .select-cell,
+#storage-cells-widget-storage-cells.full .storage-cell:hover .select-cell {
+    display:none;
+}
+
+.storage-cells-widget-racks .storage-cell.table-danger:hover .unselect-cell {
+    display:none;
+}
+
+.storage-cells-widget-racks .storage-cell.table-success:hover .unselect-cell {
+    display:inline-block;
+}
+
+.storage-cells-widget-row-number {
+    padding:3px;
+}

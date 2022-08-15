@@ -1,0 +1,30 @@
+server {
+    listen ${APP_HTTP_PORT};
+
+    set $root_path ${APP_DIR}/src/web;
+
+    server_name ${APP_HTTP_DOMAIN};
+    root $root_path;
+    index index.php;
+
+    #error_log  /var/log/nginx/${APP_HTTP_DOMAIN}.error.log;
+    #access_log /var/log/nginx/${APP_HTTP_DOMAIN}.access.log;
+    access_log off;
+
+    charset UTF-8;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location /assets {
+            alias ${APP_DIR}/src/runtime/assets;
+        }
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
+        fastcgi_pass php:9000;
+        try_files $uri = 404;
+    }
+}
